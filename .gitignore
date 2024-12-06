@@ -1,0 +1,8 @@
+*.dict
+*.out
+*.a
+*.o
+*.exe
+outDebug
+testing/build
+.vscode
