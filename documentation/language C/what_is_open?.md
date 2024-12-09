@@ -8,6 +8,7 @@ By using `open`, you can manage files directly in C, making it a powerful tool f
 - To **read** data from a file.
 - To **write** data to a file.
 - To **create** a file if it doesn’t exist.
+- Reminder: _to **close** a file after reading you will need the `close(fd)` from unistd.h library._
 
 ## Important Notes:
 - Always **check if `open` returns `-1`**, meaning something went wrong.
