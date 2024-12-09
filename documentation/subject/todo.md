@@ -1,9 +1,11 @@
 # Todo 
 
 Concepts to learn : 
-- [ ] Open / Read / close
-- [x] buffer
-- [x] fd
-- [ ] Malloc / free
-- [ ] static memory or persitente memory
+- [x] Open.
+- [ ] Read.
+- [x] close.
+- [x] buffer.
+- [x] fd.
+- [ ] importance of free when we malloc.
+- [ ] static memory or persitente memory.
 
