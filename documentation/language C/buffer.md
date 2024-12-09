@@ -11,6 +11,9 @@ _The **buffer size** determines the amount of data the buffer can hold at any gi
 
 _In the context of the 42 school's `get_next_line` project, the buffer size defines how many bytes are read from a file in a single operation. The function reads chunks of data into the buffer and processes them to extract individual lines. Efficient buffer management ensures that the function can handle input effectively, even when dealing with large files or varying line lengths._
 
+## **Remember:**
+_In C, buffers are essential for handling data efficiently and avoiding unnecessary system calls during file I/O or memory operations._
+
 ---
 
 ## **Why Use Buffers?**
@@ -59,32 +62,6 @@ int main() {
 }
 
 ```
-## **Explanation**
-1. **Buffer Allocation:**  
-   `malloc()` allocates memory dynamically for the buffer.
-   
-2. **Reading Input:**  
-   `read(0, buffer, buffer_size);` reads data from standard input (`0` for stdin).
-   
-3. **Writing Output:**  
-   `write(1, buffer, bytesRead);` writes data to standard output (`1` for stdout).
-   
-4. **Error Handling:**  
-   If the buffer allocation fails or the read operation doesn't work, an error message is printed to standard error (`2` for stderr).
-   
-5. **Freeing Memory:**  
-   After use, the buffer is freed using `free(buffer);`.
-
----
-
-### **Key Takeaways**
-- Use `read()` to get input from the user.
-- Use `write()` to display output.
-- Always manage memory properly with `malloc()` and `free()`.
-
----
-
-This example respects the constraint of only using `unistd.h` and `stdlib.h`. It demonstrates a simple use of a buffer for reading and writing text in C.
 
 **Explanation:**
 - `read()` fills the `buffer` with up to 128 bytes from the file.
@@ -134,12 +111,12 @@ int main() {
 ## **Key Takeaways**
 - A buffer temporarily holds data for efficient processing.
 - Use `read()`, `write()`, and `malloc()` for I/O and memory management.
-- Proper buffer management prevents memory leaks and overflows.
+- Proper use of buffers means proper `malloc()` / `free()` management prevents memory leaks and overflows.
 
 ---
 
 <!--            exemle 2           -->
 <!--            exemle 2           -->
 
-**Remember:** In C, buffers are essential for handling data efficiently and avoiding unnecessary system calls during file I/O or memory operations.
+
 
