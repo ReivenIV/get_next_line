@@ -5,11 +5,11 @@ A **buffer** in C is a contiguous block of memory used to temporarily store data
 
 
 ## **Definition 2**
-In C programming, a **buffer** is a contiguous block of memory used to temporarily store data during input and output operations. This approach enhances efficiency by minimizing the number of direct read and write operations to slower devices, such as disks or networks. 
+__In C programming, a **buffer** is a contiguous block of memory used to temporarily store data during input and output operations. This approach enhances efficiency by minimizing the number of direct read and write operations to slower devices, such as disks or networks. 
 
 The **buffer size** determines the amount of data the buffer can hold at any given time. Choosing an appropriate buffer size is crucial; a size too small may lead to frequent I/O operations, reducing performance, while a size too large could waste memory resources.
 
-In the context of the 42 school's `get_next_line` project, the buffer size defines how many bytes are read from a file in a single operation. The function reads chunks of data into the buffer and processes them to extract individual lines. Efficient buffer management ensures that the function can handle input effectively, even when dealing with large files or varying line lengths.
+In the context of the 42 school's `get_next_line` project, the buffer size defines how many bytes are read from a file in a single operation. The function reads chunks of data into the buffer and processes them to extract individual lines. Efficient buffer management ensures that the function can handle input effectively, even when dealing with large files or varying line lengths.__
 
 ---
 
