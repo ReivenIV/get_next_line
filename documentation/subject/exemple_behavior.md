@@ -25,3 +25,7 @@ output = chicken run super\n
 3. call to function 
 static reminder = 0
 output =  fast\0
+
+4. call to function 
+static reminder = 0
+output =  NULL (or nothing to read)
