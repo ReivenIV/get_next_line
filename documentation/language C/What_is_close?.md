@@ -9,7 +9,7 @@ The `close` function **frees the file descriptor**, making it available for othe
 ### **Key Takeaways**:
 - Use `close(file_descriptor)` to close files or other resources.
 - Always check the return value to handle possible errors.
-- VERY IMPORTANT POINT: **Closing files prevents memory leaks, data corruption, and system failures.**
+- <u> VERY IMPORTANT POINT:</u>  **Closing files prevents memory leaks, data corruption, and system failures.**
 
 ### **How to Use `close`?**
 
