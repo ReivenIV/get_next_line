@@ -5,6 +5,11 @@ In C programming, **"fd"** stands for **File Descriptor**. It is a small integer
 ### **Why Use File Descriptors?**
 When you open a file, the operating system assigns a number to it. You use this number to read, write, or close the file.
 
+### **Key Takeaways:**
+- **File Descriptor (fd)** is a number used by the OS to manage files or resources.
+- You use this number with functions like `read()`, `write()`, and `close()`.
+- If an operation fails, `fd` returns `-1`, meaning something went wrong.
+
 ---
 
 ## **Standard File Descriptors:**
@@ -92,12 +97,9 @@ int main() {
 - `1` → `stdout` (print to the screen)  
 - `2` → `stderr` (print error messages)  
 
-Let me know if you'd like more examples! 🚀
-
+--- 
 
 # Exemples using open
-
-
 ### **Example 1: Writing to a File**
 ```c
 #include <stdio.h>
@@ -156,10 +158,3 @@ int main() {
 - `printf()` writes directly to the file instead of the terminal.
 
 ---
-
-### **Key Takeaways:**
-- **File Descriptor (fd)** is a number used by the OS to manage files or resources.
-- You use this number with functions like `read()`, `write()`, and `close()`.
-- If an operation fails, `fd` returns `-1`, meaning something went wrong.
-
-Let me know if you'd like more examples! 🚀
