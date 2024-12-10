@@ -16,16 +16,19 @@ These \nchicken run super\n fast\0
 
 1. call to function 
 static reminder = 0
+raw_line = "These \nchi"
 output = "These \n"
 
 2. call to function 
 static reminder = "chi"
+raw_line = "cken run super\n"
 output = chicken run super\n
 
 3. call to function 
 static reminder = 0
-output =  fast\0
+raw_line = " fast\0"
+output = " fast\0"
 
 4. call to function 
 static reminder = 0
-output =  NULL (or nothing to read)
+output =  NULL (the way to say is the end of the file.)
