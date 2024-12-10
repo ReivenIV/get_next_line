@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/10 14:03:03 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/10 14:16:23 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // TODO strjoin		DONE
 // TODO substr		DONE
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 // Will count the length of a string
 int	ft_strlen(char *str)
@@ -29,6 +29,7 @@ int	ft_strlen(char *str)
 		count++;
 	return (count);
 }
+
 // if target found will output the string after the target onwards
 // ex : "Hello", 'e' => "ello"
 // ex : "Hello", 'z' => NULL
@@ -47,7 +48,6 @@ char	*ft_strchr(char *src, char target)
 		return (&src[i]);
 	return (NULL);
 }
-
 
 // Will join 2 strings.
 char	*ft_strjoin(char const *src1, char const *src2)
@@ -76,7 +76,7 @@ char	*ft_strjoin(char const *src1, char const *src2)
 		j++;
 	}
 	str[i + j] = '\0';
-	return (str);		
+	return (str);
 }
 
 // will output from a "src", "star", "len" one string
@@ -86,8 +86,8 @@ char	*ft_strjoin(char const *src1, char const *src2)
 // R : ""if (start >= src_len) return (ft_strdup(""));"" is not in the function 
 char	*ft_substr(char const *src, int start, int len)
 {
-	int	i;
-	int	src_len;
+	int		i;
+	int		src_len;
 	char	*str;
 
 	if (src == NULL)
