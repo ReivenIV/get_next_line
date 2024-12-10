@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
+/*   Updated: 2024/12/10 14:12:38 by rita             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 # **What is `read` in C?**  
 
 In C, `read` is a system call that allows you to read data from a file, device, or input stream into memory.

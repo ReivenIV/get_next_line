@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
+/*   Updated: 2024/12/10 14:12:38 by rita             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 # Understanding `open` in C
 
 In C, **`open`** is a system call used to open a file. When you open a file, the system gives you a **file descriptor**, which is like a special number used to read from or write to the file.
