@@ -1,8 +1,8 @@
 # How the program should work ? 
 
-in some FD file you have some data (imagine its important data): 
+imagine in some FD file you have these data : 
 ```
-These \nchicken r\nun fast\0
+These \nchicken run super\n fast\0
 ```
 
 char *get_next_line(int fd); (program runned with buffer 5)
@@ -15,7 +15,7 @@ These \nchicken run super\n fast\0
 ```
 
 1. call to function 
-static reminder = 0
+static reminder = '\0'
 raw_line = "These \nchi"
 output = "These \n"
 
@@ -25,10 +25,11 @@ raw_line = "cken run super\n"
 output = chicken run super\n
 
 3. call to function 
-static reminder = 0
+static reminder = '\0'
 raw_line = " fast\0"
 output = " fast\0"
 
 4. call to function 
-static reminder = 0
+static reminder = '\0'
+raw_line = '\0'
 output =  NULL (the way to say is the end of the file.)
