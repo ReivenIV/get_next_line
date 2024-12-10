@@ -1,3 +1,17 @@
+```txt
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
+/*   Updated: 2024/12/10 14:12:38 by rita             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+```
+
 # Why we use BUFFER_SIZE ?
 
 **`BUFFER_SIZE`** is a constant that defines how many bytes the function reads from the file at one time. Think of it as the size of the "bucket" used to fetch data from the file. 
