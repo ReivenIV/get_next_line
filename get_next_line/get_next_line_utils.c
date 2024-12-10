@@ -6,27 +6,14 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/10 14:52:08 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/10 15:22:20 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 // Will count the length of a string
-int	ft_strlen2(char *str)
-{
-	int	count;
-
-	count = 0;
-	if (!str)
-		return (-1);
-	while (str[count] != '\0')
-		count++;
-	return (count);
-}
-
-// Will count the length of a string
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
 	int	count;
 
@@ -58,7 +45,7 @@ char	*ft_strchr(char *src, char target)
 }
 // Will check buffers and if !src1 we return """src1[0] = '\0';""" 
 // R: first call into GNL will be always empty.
-char	*fix_join(char *src1, char *src2)
+static char	*fix_join(char *src1, char *src2)
 {
 	if (!src2)
 		return (NULL);
