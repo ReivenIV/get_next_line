@@ -46,23 +46,35 @@ int file_descriptor = open("filename", flags, mode);
 
 - **`filename`**: The name of the file (e.g., "example.txt").
 - **`flags`**: How you want to open the file:
-  - `O_RDONLY` - Read only
-  - `O_WRONLY` - Write only
-  - `O_RDWR`   - Read and write
-  - `O_CREAT`  - Create the file if it doesn’t exist
+  - `O_RDONLY` - Read only.
+  - `O_WRONLY` - Write only.
+  - `O_RDWR`   - Read and write.
+  - `O_TRUNC`  - Truncated mode. If the file exists and the access mode allows writing to it ( O_WRONLY ou O_RDWR), truncates its contents to 0 size when it is opened, with the effect of overwriting the file..
+  - `O_APPEND`  - Append mode. The file offset is set to the end of the file at each write, with the effect of adding text to the end of the file instead of overwriting it.
+  - `O_CREAT`  - Create the file if it doesn’t exist.
 
-- **`mode`**: File permissions (used when creating a file), like:
-  - `0644` - Owner can read/write, others can only read.
+---
+```c
+// ex: we can open a file in read only mode this way:
+open("path/to/file", O_RDONLY);
+
+// ex: we can combine flags with  "|" (OR operator). If we want to open a file in truncated write mode, we could do:
+open("path/to/file", O_WRONLY | O_TRUNC);
+
+```
+---
+
 
 ---
 
-### Simple Example 1: Open a File for Reading
+### Simple Example 1: Open a File and get "fd" (File Descriptor)
 ```c
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 
 int main() {
+    // Here is the way to get the fd adresse to the file. 
     int fd = open("example.txt", O_RDONLY);
 
     if (fd == -1) {
@@ -99,3 +111,7 @@ int main() {
     return 0;
 }
 ```
+
+### references: 
+For more information (there is a lot more) check these website it will show you how to create new files + open for exemple: 
+    - https://www.codequoi.com/en/handling-a-file-by-its-descriptor-in-c/
