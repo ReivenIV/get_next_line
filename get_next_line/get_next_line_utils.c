@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/11 15:03:45 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/11 16:10:41 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int check_src(char *src, char target)
 	int	i;
 
 	i = 0;
+	if (!src)
+		return (0);
 	while (src[i] != '\0')
 	{
 		if (src[i] == target)
@@ -63,18 +65,38 @@ int check_src(char *src, char target)
 
 // Will check buffers and if !src1 we return """src1[0] = '\0';""" 
 // R: first call into GNL will be always empty.
-static char	*fix_join(char *src1, char *src2)
+// static char	*fix_join(char *src1, char *src2)
+// {
+// 	if (!src2)
+// 		return (NULL);
+// 	if (!src1)
+// 	{
+// 		src1 = malloc(1 * sizeof(char));
+// 		if (!src1)
+// 			return (NULL);
+// 		src1[0] = "";
+// 	}
+// 	return (src1);
+// }
+
+char	*ft_strdup(char *str)
 {
-	if (!src2)
+	int		i;
+	int		str_len;
+	char	*dup;
+
+	i = 0;
+	str_len = ft_strlen(str);
+	dup = (char *)malloc(str_len * sizeof(char) + 1);
+	if (dup == NULL)
 		return (NULL);
-	if (!src1)
+	while (i < str_len)
 	{
-		src1 = malloc(1 * sizeof(char));
-		if (!src1)
-			return (NULL);
-		src1[0] = '\0';
+		dup[i] = str[i];
+		i++;
 	}
-	return (src1);
+	dup[i] = '\0';
+	return (dup);
 }
 
 // Will join 2 strings.
@@ -84,25 +106,28 @@ char	*ft_strjoin(char *src1, char *src2)
 	size_t	i;
 	size_t	j;
 
-	if (!fix_join(src1, src2))
-		return (NULL);
+	printf("src1 = %s\n",src1);
+	printf("src2 = %s\n",src2);
+
+	if (!src1)
+		src1 = ft_strdup("");
 	str = malloc((ft_strlen(src1) + ft_strlen(src2) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	j = 0;
 	while (src1[i] != '\0')
 	{
 		str[i] = src1[i];
 		i++;
 	}
+	j = 0;
 	while (src2[j] != '\0')
 	{
 		str[i + j] = src2[j];
 		j++;
 	}
 	str[i + j] = '\0';
-	// free(src1); ???
+	free(src1);
 	// free(src2); ???
 	return (str);
 }
