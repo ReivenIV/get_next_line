@@ -6,14 +6,14 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/10 17:13:11 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/11 15:03:45 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 // Will count the length of a string
-static int	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	count;
 
@@ -47,7 +47,7 @@ static int	ft_strlen(char *str)
 // Will check if target is in src. Returns:  TRUE/FALSE  1/0
 // ex : "\nHello", '\n' => 1
 // ex : "Hello", 'z' => 0
-char	*check_src(char *src, char target)
+int check_src(char *src, char target)
 {
 	int	i;
 
@@ -93,7 +93,7 @@ char	*ft_strjoin(char *src1, char *src2)
 	j = 0;
 	while (src1[i] != '\0')
 	{
-		str[i] != src1[i];
+		str[i] = src1[i];
 		i++;
 	}
 	while (src2[j] != '\0')
@@ -112,7 +112,7 @@ char	*ft_strjoin(char *src1, char *src2)
 // ex: "Hello, World!", 7, 50 = > "World!"
 // ex: "Hello, World!", 70, 5 = > ""
 // R : ""if (start >= src_len) return (ft_strdup(""));"" is not in the function 
-char	*ft_substr(char const *src, int start, int len)
+char	*ft_substr(char *src, int start, int len)
 {
 	int		i;
 	int		src_len;
