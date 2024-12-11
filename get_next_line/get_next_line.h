@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:04 by rita              #+#    #+#             */
-/*   Updated: 2024/12/11 16:07:05 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/11 16:49:38 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@
 # include <stdio.h> //! to erase (just for testing mode)
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 1024
 # endif
+
+// if Bsize is bigger than 1M 
+# if BUFFER_SIZE > 1000000
+#	undef BUFFER_SIZE
+#	define BUFFER_SIZE 1000000
+# endif
+
 
 int		ft_strlen(char *str);
 char	*ft_strdup(char *str);
