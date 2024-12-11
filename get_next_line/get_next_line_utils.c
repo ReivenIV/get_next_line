@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/11 16:10:41 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/11 17:24:37 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ char	*ft_strjoin(char *src1, char *src2)
 	size_t	i;
 	size_t	j;
 
-	printf("src1 = %s\n",src1);
-	printf("src2 = %s\n",src2);
+	// printf("src1 = %s\n",src1);
+	// printf("src2 = %s\n",src2);
 
 	if (!src1)
 		src1 = ft_strdup("");
@@ -128,7 +128,6 @@ char	*ft_strjoin(char *src1, char *src2)
 	}
 	str[i + j] = '\0';
 	free(src1);
-	// free(src2); ???
 	return (str);
 }
 
