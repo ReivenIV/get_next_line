@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:04 by rita              #+#    #+#             */
-/*   Updated: 2024/12/10 15:42:53 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/10 17:35:32 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *src1, char *src2);
 char	*ft_substr(char const *src, int start, int len);
-char	*ft_strchr(char *src, char target);
+// char	*ft_strchr(char *src, char target);
+char	*check_src(char *src, char target);
 
 #endif

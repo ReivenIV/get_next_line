@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/10 15:22:20 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/10 17:13:11 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,41 @@ static int	ft_strlen(char *str)
 }
 
 // if target found will output the string after the target onwards
-// ex : "Hello", 'e' => "ello"
+// ex : "\nHello", '\n' => "Hello"
 // ex : "Hello", 'z' => NULL
-char	*ft_strchr(char *src, char target)
+// char	*ft_strchr(char *src, char target)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (src[i] != '\0')
+// 	{
+// 		if (src[i] == (unsigned char)target)
+// 			return (&src[i]);
+// 		i++;
+// 	}
+// 	if (src[i] == target)
+// 		return (&src[i]);
+// 	return (NULL);
+// }
+
+// Will check if target is in src. Returns:  TRUE/FALSE  1/0
+// ex : "\nHello", '\n' => 1
+// ex : "Hello", 'z' => 0
+char	*check_src(char *src, char target)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
 	{
-		if (src[i] == (unsigned char)target)
-			return (&src[i]);
+		if (src[i] == target)
+			return (1);
 		i++;
 	}
-	if (src[i] == target)
-		return (&src[i]);
-	return (NULL);
+	return (0);
 }
+
 // Will check buffers and if !src1 we return """src1[0] = '\0';""" 
 // R: first call into GNL will be always empty.
 static char	*fix_join(char *src1, char *src2)
@@ -90,7 +108,7 @@ char	*ft_strjoin(char *src1, char *src2)
 }
 
 // will output from a "src", "star", "len" one string
-// ex: "Hello, World!", 7, 5 = > "World"
+// ex: "Hello,\nWorld!", 7, 5 = > "World"
 // ex: "Hello, World!", 7, 50 = > "World!"
 // ex: "Hello, World!", 70, 5 = > ""
 // R : ""if (start >= src_len) return (ft_strdup(""));"" is not in the function 
