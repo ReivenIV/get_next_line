@@ -33,3 +33,9 @@ output = " fast\0"
 static reminder = '\0'
 raw_line = '\0'
 output =  NULL (the way to say is the end of the file.)
+
+//edge case double \n\n
+99. call to function 
+static reminder = ''
+raw_line = "These \nchi\n"
+output =  NULL (the way to say is the end of the file.)
