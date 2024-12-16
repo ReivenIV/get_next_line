@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fwebe-ir <fwebe-ir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 14:17:34 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/16 17:35:33 by fwebe-ir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,60 +24,6 @@ int	ft_strlen(char *str)
 		count++;
 	return (count);
 }
-
-// if target found will output the string after the target onwards
-// ex : "\nHello", '\n' => "Hello"
-// ex : "Hello", 'z' => NULL
-// char	*ft_strchr(char *src, char target)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (src[i] != '\0')
-// 	{
-// 		if (src[i] == (unsigned char)target)
-// 			return (&src[i]);
-// 		i++;
-// 	}
-// 	if (src[i] == target)
-// 		return (&src[i]);
-// 	return (NULL);
-// }
-
-// Will check if target is in src. Returns:  TRUE/FALSE  1/0
-// ex : "\nHello", '\n' => 1
-// ex : "Hello", 'z' => 0
-int check_src(char *src, char target)
-{
-	int	i;
-
-	i = 0;
-	if (!src)
-		return (0);
-	while (src[i] != '\0')
-	{
-		if (src[i] == target)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-// Will check buffers and if !src1 we return """src1[0] = '\0';""" 
-// R: first call into GNL will be always empty.
-// static char	*fix_join(char *src1, char *src2)
-// {
-// 	if (!src2)
-// 		return (NULL);
-// 	if (!src1)
-// 	{
-// 		src1 = malloc(1 * sizeof(char));
-// 		if (!src1)
-// 			return (NULL);
-// 		src1[0] = "";
-// 	}
-// 	return (src1);
-// }
 
 char	*ft_strdup(char *str)
 {
@@ -97,6 +43,25 @@ char	*ft_strdup(char *str)
 	}
 	dup[i] = '\0';
 	return (dup);
+}
+
+// Will check if target is in src. Returns:  TRUE/FALSE  1/0
+// ex : "\nHello", '\n' => 1
+// ex : "Hello", 'z' => 0
+int check_src(char *src, char target)
+{
+	int	i;
+
+	i = 0;
+	if (!src)
+		return (0);
+	while (src[i] != '\0')
+	{
+		if (src[i] == target)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 // Will join 2 strings.
@@ -124,7 +89,7 @@ char	*ft_strjoin(char *src1, char *src2)
 		j++;
 	}
 	str[i + j] = '\0';
-	free(src1);
+	src1 = NULL;
 	return (str);
 }
 
