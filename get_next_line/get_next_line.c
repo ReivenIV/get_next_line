@@ -6,7 +6,7 @@
 /*   By: fwebe-ir <fwebe-ir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 17:57:31 by fwebe-ir         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:10:47 by fwebe-ir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,12 @@ char	*update_stash(char *raw_line)
 		i++;
 	if (raw_line[i] != '\n')
 		i++;
-	new_stash = ft_substr(raw_line, i, (raw_line_len - i));
+	new_stash = ft_substr(raw_line, i + 1, (raw_line_len - i - 1));
+	if (new_stash && new_stash[0] == '\0')
+	{
+		free(new_stash);
+		new_stash = NULL;
+	}
 	return (new_stash);
 }
 
