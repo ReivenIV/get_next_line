@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/11 17:24:37 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/16 14:17:34 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,6 @@ char	*ft_strjoin(char *src1, char *src2)
 	size_t	i;
 	size_t	j;
 
-	// printf("src1 = %s\n",src1);
-	// printf("src2 = %s\n",src2);
-
 	if (!src1)
 		src1 = ft_strdup("");
 	str = malloc((ft_strlen(src1) + ft_strlen(src2) + 1) * sizeof(char));
@@ -132,7 +129,8 @@ char	*ft_strjoin(char *src1, char *src2)
 }
 
 // will output from a "src", "star", "len" one string
-// ex: "Hello,\nWorld!", 7, 5 = > "World"
+// ex: "Hello,\nWorld!", 0, 6 = > "Hello,"
+// ex: "Hello,\nWorld!", 7, 5 = > "World"  (what we need for GNL)
 // ex: "Hello, World!", 7, 50 = > "World!"
 // ex: "Hello, World!", 70, 5 = > ""
 // R : ""if (start >= src_len) return (ft_strdup(""));"" is not in the function 
@@ -140,22 +138,22 @@ char	*ft_substr(char *src, int start, int len)
 {
 	int		i;
 	int		src_len;
-	char	*str;
+	char	*cleaned_str;
 
 	if (src == NULL)
 		return (NULL);
 	src_len = ft_strlen(src);
 	if (start + len > src_len)
 		len = src_len - start;
-	str = malloc((len + 1) * sizeof(char));
-	if (str == NULL)
+	cleaned_str = malloc((len + 1) * sizeof(char));
+	if (cleaned_str == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len && src[start + i] != '\0')
 	{
-		str[i] = src[start + i];
+		cleaned_str[i] = src[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	cleaned_str[i] = '\0';
+	return (cleaned_str);
 }
