@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 14:59:40 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/16 15:54:32 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,20 @@ char	*get_raw_line(int fd, char *stash)
 char	*create_new_line(char *stash, char *raw_line)
 {
 	size_t	i;
-	size_t	stash_len;
+	//size_t	stash_len;
 	char	*new_line;
 	char	*cleaned_raw_line;
 
 	i = 0;
-	stash_len = ft_strlen(stash);
+	//stash_len = ft_strlen(stash);
 	while (raw_line[i] != '\n' && raw_line[i] != '\0')
 		i++;
 	if (raw_line[i] != '\n')
 		i++;
-	// we create new_lien allocation. 
-	new_line = malloc((i + stash_len + 1) * sizeof(char));
-	if (!new_line)
-		return (NULL);
 	// We clean raw_line
 	cleaned_raw_line = ft_substr(raw_line, 0, i);
+	if (!cleaned_raw_line)
+		return (NULL);
 	// We allocate data to new_line
 	new_line = ft_strjoin(stash, cleaned_raw_line);
 	if (!new_line)
@@ -113,24 +111,20 @@ char	*get_next_line(int fd)
 	raw_line = get_raw_line(fd, stash);
 	if (!raw_line)
 		return (NULL);
-	printf("raw line = %s", raw_line);
-
 	next_line = create_new_line(stash, raw_line);
-
-	printf("\n\nnext_line = %s\n", next_line);
 	stash = update_stash(raw_line);
-	printf("\n\n new_stash = %s\n", stash);
-	return (stash);
+	return (next_line);
 }
 // int	main(void)
 // {
 // 	char	*raw_line;
-// 	int		i;
+// 	//int		i;
 // 	int		fd;
 	
-// 	i =1;
+// 	//i = 1;
 // 	fd = open("test.txt", O_RDONLY);
 // 	raw_line = get_next_line(fd);
+// 	printf("%s",raw_line);	
 // 	free(raw_line);
 //     close(fd);
 // 	return (0);
