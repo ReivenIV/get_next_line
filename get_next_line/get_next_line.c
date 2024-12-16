@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 14:24:49 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/16 14:58:44 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*get_raw_line(int fd, char *stash)
 	{
 
 		res_open = read(fd, buffer_block, BUFFER_SIZE);
-	//// printf("\n%s\n", buffer_block);
 		if (res_open == -1)
 		{
 			free(stash);
@@ -51,7 +50,6 @@ char	*get_raw_line(int fd, char *stash)
 		}
 	}
 	free(buffer_block);
-	//// printf("\n%s", stash);
 	return (stash);
 }
 
@@ -84,6 +82,25 @@ char	*create_new_line(char *stash, char *raw_line)
 	return (new_line);
 }
 
+char	*update_stash(char *raw_line)
+{
+	size_t	i;
+	size_t	raw_line_len;
+	char	*updated_stash;
+	
+	if (!raw_line)
+		return (free(raw_line), NULL);
+	raw_line_len = ft_strlen(raw_line);
+	i = 0;
+	while (raw_line[i] != '\n' && raw_line[i] != '\0')
+		i++;
+	if (raw_line[i] != '\n')
+		i++;
+	updated_stash = ft_substr(raw_line, i, (raw_line_len - i));
+	free(raw_line);
+	return (updated_stash);
+}
+
 //* Main function
 char	*get_next_line(int fd)
 {
@@ -101,22 +118,20 @@ char	*get_next_line(int fd)
 	next_line = create_new_line(stash, raw_line);
 
 	printf("\n\nnext_line = %s\n", next_line);
-	// stash = update_stash(raw_line);
-	// return (next_line);
-	char *test = ft_strdup("lorem");
-
-	return (test);
+	stash = update_stash(raw_line);
+	printf("\n\n updated_stash = %s\n", stash);
+	return (stash);
 }
-int	main(void)
-{
-	char	*raw_line;
-	int		i;
-	int		fd;
+// int	main(void)
+// {
+// 	char	*raw_line;
+// 	int		i;
+// 	int		fd;
 	
-	i =1;
-	fd = open("test.txt", O_RDONLY);
-	raw_line = get_next_line(fd);
-	free(raw_line);
-    close(fd);
-	return (0);
-}
+// 	i =1;
+// 	fd = open("test.txt", O_RDONLY);
+// 	raw_line = get_next_line(fd);
+// 	free(raw_line);
+//     close(fd);
+// 	return (0);
+// }
