@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 14:58:44 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/16 14:59:40 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*update_stash(char *raw_line)
 {
 	size_t	i;
 	size_t	raw_line_len;
-	char	*updated_stash;
+	char	*new_stash;
 	
 	if (!raw_line)
 		return (free(raw_line), NULL);
@@ -96,9 +96,9 @@ char	*update_stash(char *raw_line)
 		i++;
 	if (raw_line[i] != '\n')
 		i++;
-	updated_stash = ft_substr(raw_line, i, (raw_line_len - i));
+	new_stash = ft_substr(raw_line, i, (raw_line_len - i));
 	free(raw_line);
-	return (updated_stash);
+	return (new_stash);
 }
 
 //* Main function
@@ -119,7 +119,7 @@ char	*get_next_line(int fd)
 
 	printf("\n\nnext_line = %s\n", next_line);
 	stash = update_stash(raw_line);
-	printf("\n\n updated_stash = %s\n", stash);
+	printf("\n\n new_stash = %s\n", stash);
 	return (stash);
 }
 // int	main(void)
