@@ -6,7 +6,7 @@
 /*   By: fwebe-ir <fwebe-ir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 17:35:33 by fwebe-ir         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:11:21 by fwebe-ir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_strjoin(char *src1, char *src2)
 		src1 = ft_strdup("");
 	str = malloc((ft_strlen(src1) + ft_strlen(src2) + 1) * sizeof(char));
 	if (str == NULL)
-		return (NULL);
+		return (free(src1), src1 = NULL, NULL);
 	i = 0;
 	while (src1[i] != '\0')
 	{
@@ -89,8 +89,7 @@ char	*ft_strjoin(char *src1, char *src2)
 		j++;
 	}
 	str[i + j] = '\0';
-	src1 = NULL;
-	return (str);
+	return (free(src1), src1= NULL, str);
 }
 
 // will output from a "src", "star", "len" one string
@@ -108,8 +107,10 @@ char	*ft_substr(char *src, int start, int len)
 	if (src == NULL)
 		return (NULL);
 	src_len = ft_strlen(src);
-	if (start + len > src_len)
-		len = src_len - start;
+	if (start > src_len)
+		return (NULL);
+	// if (start + len > src_len)
+	// 	len = src_len - start;
 	cleaned_str = malloc((len + 1) * sizeof(char));
 	if (cleaned_str == NULL)
 		return (NULL);
