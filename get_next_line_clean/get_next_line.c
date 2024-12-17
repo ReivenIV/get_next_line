@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/17 12:51:20 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/17 13:00:54 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ char	*create_new_line(char *raw_line)
 		return (NULL);
 	return (new_line);
 }
+
 char	*update_stash(char *raw_line)
 {
 	size_t	i;
 	size_t	raw_line_len;
 	char	*new_stash;
-	
+
 	if (!raw_line)
 		return (NULL);
 	raw_line_len = ft_strlen(raw_line);

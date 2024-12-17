@@ -6,7 +6,7 @@
 /*   By: rita <rita@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/17 12:49:40 by rita             ###   ########.fr       */
+/*   Updated: 2024/12/17 13:03:09 by rita             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strdup(char *str)
 	return (dup);
 }
 
-int check_src(char *src, char target)
+int	check_src(char *src, char target)
 {
 	int	i;
 
@@ -84,7 +84,7 @@ char	*ft_strjoin(char *src1, char *src2)
 		j++;
 	}
 	str[i + j] = '\0';
-	return (free(src1), src1= NULL, str);
+	return (free(src1), src1 = NULL, str);
 }
 
 char	*ft_substr(char *src, int start, int len)
