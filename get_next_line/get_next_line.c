@@ -6,7 +6,7 @@
 /*   By: fwebe-ir <fwebe-ir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:57:01 by rita              #+#    #+#             */
-/*   Updated: 2024/12/16 18:10:47 by fwebe-ir         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:23:05 by fwebe-ir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,23 @@ char	*get_raw_line(int fd, char *stash)
 		res_open = read(fd, buffer_block, BUFFER_SIZE);
 		if (res_open == -1)
 		{
-			free(stash);
-			stash = NULL;
+			//free(stash);
+			////stash = NULL;
 			free(buffer_block);
-			buffer_block = NULL;
+			////buffer_block = NULL;
 			return (NULL);
 		}
 		if (res_open == 0 && (!stash || stash[0] == '\0'))
 		{
 			free(buffer_block);
-			buffer_block = NULL;
+			////buffer_block = NULL;
 			return (NULL);
 		}
 		buffer_block[res_open] = '\0';
 		stash = ft_strjoin(stash, buffer_block);
 		if (!stash)
 		{
-			free(buffer_block);
+			////free(buffer_block);
 			stash = NULL;
 			return (NULL);
 		}
@@ -61,28 +61,20 @@ char	*get_raw_line(int fd, char *stash)
 
 // expected output = stash + cleaned_raw_line + \0 
 // TODO test function might not work nl maybe need a '\0'.
-char	*create_new_line(char *stash, char *raw_line)
+char	*create_new_line(char *raw_line)
 {
 	size_t	i;
-	//size_t	stash_len;
 	char	*new_line;
-	char	*cleaned_raw_line;
 
 	i = 0;
-	//stash_len = ft_strlen(stash);
 	while (raw_line[i] != '\n' && raw_line[i] != '\0')
 		i++;
 	if (raw_line[i] == '\n')
 		i++;
-	// We clean raw_line
-	cleaned_raw_line = ft_substr(raw_line, 0, i);
-	if (!cleaned_raw_line)
-		return (NULL);
 	// We allocate data to new_line
-	new_line = ft_strjoin(stash, cleaned_raw_line);
+	new_line = ft_substr(raw_line, 0, i);
 	if (!new_line)
 		return (NULL);
-	free(cleaned_raw_line);
 	return (new_line);
 }
 
@@ -125,7 +117,7 @@ char	*get_next_line(int fd)
 		stash = NULL;
 		return (NULL);
 	}
-	next_line = create_new_line(stash, raw_line);
+	next_line = create_new_line(raw_line);
 	stash = update_stash(raw_line);
 	free(raw_line);
 	raw_line = NULL;
@@ -146,17 +138,17 @@ char	*get_next_line(int fd)
 // 	return (0);
 // }
 
-int main(void)
-{
-    char *str;
-    int fd = open("test.txt", O_RDONLY);
+// int main(void)
+// {
+//     char *str;
+//     int fd = open("read_error.txt", O_RDONLY);
     
-    if (fd < 0)
-        perror("Erreur lors de l'ouverture");
-    while ((str = get_next_line(fd)) != NULL) {
-        printf("%s", str);
-        free(str);
-    }
-    close(fd);
-    return (0);
-}
+//     if (fd < 0)
+//         perror("Erreur lors de l'ouverture");
+//     while ((str = get_next_line(fd)) != NULL) {
+//         printf("%s", str);
+//         free(str);
+//     }
+//     close(fd);
+//     return (0);
+// }
