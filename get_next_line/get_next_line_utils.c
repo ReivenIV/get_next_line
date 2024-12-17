@@ -6,13 +6,13 @@
 /*   By: fwebe-ir <fwebe-ir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:12:47 by rita              #+#    #+#             */
-/*   Updated: 2024/12/17 11:11:21 by fwebe-ir         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:42:32 by fwebe-ir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// Will count the length of a string
+// * Will count the length of a string
 int	ft_strlen(char *str)
 {
 	int	count;
@@ -45,7 +45,8 @@ char	*ft_strdup(char *str)
 	return (dup);
 }
 
-// Will check if target is in src. Returns:  TRUE/FALSE  1/0
+// * Will check if target(\n) is in src. Returns:  TRUE/FALSE  1/0
+// * will be used to check buffer_blocks.
 // ex : "\nHello", '\n' => 1
 // ex : "Hello", 'z' => 0
 int check_src(char *src, char target)
@@ -64,6 +65,7 @@ int check_src(char *src, char target)
 	return (0);
 }
 
+// * will be used to join buffer_blocks in the projects
 // Will join 2 strings.
 char	*ft_strjoin(char *src1, char *src2)
 {
@@ -92,12 +94,10 @@ char	*ft_strjoin(char *src1, char *src2)
 	return (free(src1), src1= NULL, str);
 }
 
+// * will be used to clean strings before/after the "\n".
 // will output from a "src", "star", "len" one string
-// ex: "Hello,\nWorld!", 0, 6 = > "Hello,"
-// ex: "Hello,\nWorld!", 7, 5 = > "World"  (what we need for GNL)
-// ex: "Hello, World!", 7, 50 = > "World!"
-// ex: "Hello, World!", 70, 5 = > ""
-// R : ""if (start >= src_len) return (ft_strdup(""));"" is not in the function 
+// ex: "Hello,\nWorld!", 0, 7 = > "Hello,\n"
+// ex: "Hello,\nWorld!", 7, 5 = > "World"  
 char	*ft_substr(char *src, int start, int len)
 {
 	int		i;
@@ -109,8 +109,6 @@ char	*ft_substr(char *src, int start, int len)
 	src_len = ft_strlen(src);
 	if (start > src_len)
 		return (NULL);
-	// if (start + len > src_len)
-	// 	len = src_len - start;
 	cleaned_str = malloc((len + 1) * sizeof(char));
 	if (cleaned_str == NULL)
 		return (NULL);
